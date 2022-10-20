@@ -1,0 +1,20 @@
+.list-container { 
+    list-style-type: none;
+}
+
+.appointment-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-heading {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.list-button {
+    background-color: transparent;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+}
