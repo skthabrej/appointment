@@ -63,3 +63,24 @@
     padding-left: 60px;
     padding-top: 60px;
 }
+
+.list-heading {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.list-button {
+    background-color: transparent;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+    height: 20px;
+    width: 65px;
+}
+
+.appointment-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+}

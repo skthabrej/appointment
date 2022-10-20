@@ -1,17 +1,27 @@
 import { Component } from "react";
+import {v4 as uuidv4} from 'uuid'
 import AppointmentItem from '../AppointmentItem'
 import './index.css'
 
 class Appointments extends Component {
-    state = {title: '', date: '', isFilterActive: false, appointmentsList: []}
+    state = {title: '', date: '', isFilterActive: false, id:uuidv4(),appointmentsList: []}
+
+    toggleIsFavorite = id => {
+        this.setState(prevState => ({
+            appointmentsList: prevState.appointmentsList.map(eachAppointment => {
+            if (id === eachAppointment.id) {
+              return {...eachAppointment, isFavorite: !eachAppointment.isFilterActive}
+            }
+            return eachAppointment
+          }),
+        }))
+      }
 
     onInputName = event => {
-        const {title} = this.state
         this.setState({title:event.target.value})
     }
 
     onInputDate = event => {
-        const {date} = this.state
         this.setState({date:event.target.value})
     }
 
@@ -25,12 +35,12 @@ class Appointments extends Component {
         }
     
         this.setState(prevState => ({
-          contactsList: [...prevState.appointmentsList, newData],
-          name: '',
-          mobileNo: '',
+            appointmentsList: [...prevState.appointmentsList, newData],
+            title: '',
+            date: '',
         }))
       }
-
+      
     render() {
         const {appointmentsList,title,date} = this.state
         return (
@@ -42,16 +52,20 @@ class Appointments extends Component {
                         <label htmlFor="title" className="label-names">Name</label><br/>
                         <input type='text' className="input" id="title" value={title} onChange={this.onInputName}/><br/>
                         <label htmlFor="date" className="label-names" >Date</label><br/>
-                        <input type='date' className="input" id="date" value={date} onChange={this.onInputDate}/><br/>
+                        <input type='text' className="input" id="date" value={date} onChange={this.onInputDate}/><br/>
                         <button className="btn-style" type="submit">Add</button>
                     </form>
                     <img src="https://assets.ccbp.in/frontend/react-js/appointments-app/appointments-img.png " alt='appointment' className="pic"/>
                     </div>
                     <hr className="line"/>
+                    <div className="appointment-container">
+                        <h1 className="list-heading">Appointments</h1>
+                        <button className="list-button">started</button>
+                    </div>
                     {appointmentsList.map(eachAppointment => (
                         <AppointmentItem
                         AppointmentDetails={eachAppointment}
-                        key={eachAppointment}
+                        key={eachAppointment.uuidv4()}
                         toggleIsFavorite={this.toggleIsFavorite}
                         />
                     ))}

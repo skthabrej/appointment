@@ -1,25 +1,30 @@
 import { Component } from "react";
 import './index.css'
 
-class AppointmentItem extends Component {
-    render() {
-        const {AppointmentDetails,toggleIsFavorite} = this.props
-        const {title,date,id} = AppointmentDetails
+const starImg ='https://assets.ccbp.in/frontend/react-js/appointments-app/star-img.png'
+const filledStarImg ='https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png'
 
-        const onToggleButton = () => {
-            toggleIsFavorite(id)
-        }
-        
+class AppointmentItem extends Component {
+    onChangeStar = () => {
+        const {AppointmentDetails,toggleIsFavorite} = this.props
+        const {id} = AppointmentDetails
+        toggleIsFavorite(id)
+    }
+    render() {
+        const {AppointmentDetails} = this.props
+        const {title,date,starValue} = AppointmentDetails
+        const starImgUrl = starValue ? filledStarImg : starImg
         return(
             <li className="list-container">
-                <div className="appointment-container">
-                    <h1 className="list-heading">Appointments</h1>
-                    <button className="list-button">started</button>
-                    <div className="appointment-card">
-                        <h1>{title}</h1>
-                        <button><img src="https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png" alt="star" onClick={this.onToggleButton}/></button>
-                        <p>{date}</p>
+                <div className="appointment-card">
+                    <div className="space-container">
+                        <h1 className="list-heading">{title}</h1>
+                        <button className="list-btn"><img src={starImgUrl} 
+                        alt="not-filled"
+                        onClick={this.onChangeStar}
+                        /></button>
                     </div>
+                    <p>{date}</p>
                 </div>
             </li>
         )

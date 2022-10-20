@@ -2,19 +2,28 @@
     list-style-type: none;
 }
 
-.appointment-container {
+.appointment-card {
+    height: 40%;
+    width: 40%;
+    background-color: rgb(238, 238, 238);
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.space-container {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
 .list-heading {
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 7px;
+    color: chocolate;
 }
 
-.list-button {
+.list-btn {
     background-color: transparent;
-    color: black;
-    font-weight: bold;
-    border-radius: 10px;
+    border-width: 0px;
 }
