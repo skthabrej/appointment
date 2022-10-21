@@ -19,10 +19,9 @@ class AppointmentItem extends Component {
                 <div className="appointment-card">
                     <div className="space-container">
                         <h1 className="list-heading">{title}</h1>
-                        <button className="list-btn"><img src={starImgUrl} 
-                        alt="not-filled"
-                        onClick={this.onChangeStar}
-                        /></button>
+                        <button className="list-btn" onClick={this.onChangeStar}>
+                            <img src={starImgUrl} alt="not-filled"/>
+                        </button>
                     </div>
                     <p>{date}</p>
                 </div>

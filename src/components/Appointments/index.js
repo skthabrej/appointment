@@ -10,7 +10,7 @@ class Appointments extends Component {
         this.setState(prevState => ({
             appointmentsList: prevState.appointmentsList.map(eachAppointment => {
             if (id === eachAppointment.id) {
-              return {...eachAppointment, isFavorite: !eachAppointment.isFilterActive}
+              return {...eachAppointment, isFilterActive: !eachAppointment.isFilterActive}
             }
             return eachAppointment
           }),
@@ -42,7 +42,8 @@ class Appointments extends Component {
       }
       
     render() {
-        const {appointmentsList,title,date} = this.state
+        const {appointmentsList,title,date,isFilterActive} = this.state
+        const buttonColor = isFilterActive ? 'yellow-color' : null
         return (
             <div className="bg-container">
                 <div className="card-container">
@@ -65,7 +66,7 @@ class Appointments extends Component {
                     {appointmentsList.map(eachAppointment => (
                         <AppointmentItem
                         AppointmentDetails={eachAppointment}
-                        key={eachAppointment.uuidv4()}
+                        key={eachAppointment.id}
                         toggleIsFavorite={this.toggleIsFavorite}
                         />
                     ))}
