@@ -51,9 +51,9 @@ class Appointments extends Component {
                     <form className="form" onSubmit={this.onSubmitData}>
                         <h1 className="heading">Add Appointment</h1>
                         <label htmlFor="title" className="label-names">Name</label><br/>
-                        <input type='text' className="input" id="title" value={title} onChange={this.onInputName}/><br/>
+                        <input type='text' className="input" id="title" value={title} onChange={this.onInputName} placeholder='Enter your name'/><br/>
                         <label htmlFor="date" className="label-names" >Date</label><br/>
-                        <input type='text' className="input" id="date" value={date} onChange={this.onInputDate}/><br/>
+                        <input type='text' className="input" id="date" value={date} onChange={this.onInputDate} placeholder='Enter your date'/><br/>
                         <button className="btn-style" type="submit">Add</button>
                     </form>
                     <img src="https://assets.ccbp.in/frontend/react-js/appointments-app/appointments-img.png " alt='appointment' className="pic"/>
@@ -67,6 +67,7 @@ class Appointments extends Component {
                         <AppointmentItem
                         AppointmentDetails={eachAppointment}
                         key={eachAppointment.id}
+                        buttonColor={buttonColor}
                         toggleIsFavorite={this.toggleIsFavorite}
                         />
                     ))}

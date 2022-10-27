@@ -1,5 +1,5 @@
 .bg-container {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(206, 252, 255);
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -10,6 +10,7 @@
     background-color: rgb(184, 242, 255);
     height: 60%;
     width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .heading {
     font-size: 20px;
